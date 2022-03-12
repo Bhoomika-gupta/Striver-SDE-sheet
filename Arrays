@@ -1,0 +1,36 @@
+Set matrix zeroes
+
+https://leetcode.com/problems/set-matrix-zeroes/
+
+
+#code
+
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& m) {
+        unordered_map<int,int>mp,mp1;
+        for(int i=0;i<m.size();i++)
+        {
+            for(int j=0;j<m[0].size();j++)
+            {
+                if(m[i][j]==0)
+                {
+                    mp[i]=1;
+                    mp1[j]=1;
+                }
+            }
+        }
+        for(int i=0;i<m.size();i++)
+        {
+            for(int j=0;j<m[0].size();j++)
+            {
+                if(mp.find(i)!=mp.end() || mp1.find(j)!=mp.end())
+                {
+                    m[i][j]=0;
+                }
+            }
+        }
+        
+    }
+};
